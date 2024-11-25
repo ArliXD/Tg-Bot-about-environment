@@ -1,0 +1,72 @@
+import telebot
+from telebot import types 
+
+
+bot = telebot.TeleBot("7647813235:AAGIQjrTFWsvpTVUH7fccenqW1o2aFvTHSU")
+
+@bot.message_handler(commands=['help'])
+def start_quest(message):
+  markup = types.ReplyKeyboardMarkup()
+  bot.send_message(message.chat.id, " Список команд:" 
+  " /problems - что такое загрязнение окружающей среды"
+  " /why - причины по которым оно появилось" 
+  " /consequences - последстивия загрязнения окружающей среды" 
+  " /reducing - как можно уменьшить загрязнение окружающей" 
+  " /org - огранизации, которые борятся с загрязнением окружающей среды"
+  " /images1 - картиника 1"
+  " /images2 - картиника 2"
+  " /images3 - картиника 3"
+  " /images4 - картиника 4", reply_markup=markup)
+
+@bot.message_handler(commands=['start'])
+def start_quest(message):
+  markup = types.ReplyKeyboardMarkup()
+  bot.send_message(message.chat.id, "Привет! Хочешь узнать про загрязнение окружающей среды? Если да, то напишу комманду /help ", reply_markup=markup)
+
+@bot.message_handler(commands=['problems'])
+def start_quest(message):
+  markup = types.ReplyKeyboardMarkup()
+  bot.send_message(message.chat.id, "Загрязнение окружающей среды - это процесс, при котором вредные вещества попадают в атмосферу, почву, водоемы, что приводит к ухудшению качества окружающей среды и негативно влияет на здоровье людей, животных и растений.", reply_markup=markup)
+
+@bot.message_handler(commands=['why'])
+def start_quest(message):
+  markup = types.ReplyKeyboardMarkup()
+  bot.send_message(message.chat.id, "Выбросы вредных веществ в атмосферу от промышленных предприятий и автотранспорта. Неправильная утилизация отходов, которые попадают в водные и земельные ресурсы. Вырубка лесов и других экосистем для промышленных целей. Использование пластиковых и других не разлагающихся материалов, которые загрязняют окружающую среду.", reply_markup=markup)
+
+@bot.message_handler(commands=['consequences'])
+def start_quest(message):
+  markup = types.ReplyKeyboardMarkup()
+  bot.send_message(message.chat.id, "Загрязнение окружающей среды может вызывать различные проблемы для людей и природы. Это может привести к заболеваниям, вымиранию видов, изменению климата и ухудшению качества воды. В целом, загрязнение окружающей среды имеет серьезные последствия и требует принятия мер для защиты природы.", reply_markup=markup)
+
+@bot.message_handler(commands=['reducing'])
+def start_quest(message):
+  markup = types.ReplyKeyboardMarkup()
+  bot.send_message(message.chat.id, "Переход на возобновляемые источники энергии (солнечная, ветровая, гидроэнергетика).Уменьшение потребления энергии (изоляция зданий, использование энергоэффективных устройств).Повышение эффективности использования ресурсов (переработка отходов, вторичное использование материалов).Популяризация общественного транспорта и велосипедов.Поддержка экологичных технологий и инноваций.Соблюдение правил утилизации и утилизации отходов.", reply_markup=markup)
+
+@bot.message_handler(commands=['org'])
+def start_quest(message):
+  markup = types.ReplyKeyboardMarkup()
+  bot.send_message(message.chat.id, "Всероссийское общество охраны природы (ВООП). Общероссийская общественная и культурно-просветительная экологическая организация.Центр экологической политики России (ЦЭПР).Российское экологическое движение «Зелёные».Неправительственный экологический фонд им. В. И. Вернадского.Российский региональный экологический центр (РРЭЦ).Общероссийская общественная организация «Зелёный патруль».", reply_markup=markup)
+
+@bot.message_handler(commands=['images'])
+def send_image(message):
+  photo = open('images/1.jpg', 'rb')
+  bot.send_photo(message.chat.id, photo)
+
+@bot.message_handler(commands=['images2'])
+def send_image(message):
+  photo = open('images/2.jpg', 'rb')
+  bot.send_photo(message.chat.id, photo)
+
+@bot.message_handler(commands=['images3'])
+def send_image(message):
+  photo = open('images/3.jpg', 'rb')
+  bot.send_photo(message.chat.id, photo)
+
+@bot.message_handler(commands=['images4'])
+def send_image(message):
+  photo = open('images/4.jpg', 'rb')
+  bot.send_photo(message.chat.id, photo)
+
+
+bot.infinity_polling()
